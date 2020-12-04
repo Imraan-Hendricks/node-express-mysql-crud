@@ -1,0 +1,11 @@
+{
+  "name": "node-express-mysql-crud",
+  "version": "0.1.0",
+  "description": "This project demonstrates the usage of MySql in node js through CRUD operations",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Imraan-Hendricks",
+  "license": "ISC"
+}

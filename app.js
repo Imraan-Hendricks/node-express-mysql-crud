@@ -1,10 +1,17 @@
 const express = require('express');
+const { dbStart } = require('./db/db-main');
 const { PORT, NODE_ENV } = require('./config/env');
 
-const app = express();
+const main = async () => {
+  await dbStart();
 
-app.use(express.json());
+  const app = express();
 
-app.listen(PORT, () => {
-  console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`);
-});
+  app.use(express.json());
+
+  app.listen(PORT, () => {
+    console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`);
+  });
+};
+
+main();

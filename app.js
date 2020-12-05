@@ -2,6 +2,7 @@ const express = require('express');
 const { createServer } = require('http');
 const { dbStart } = require('./db/db-main');
 const { PORT, NODE_ENV } = require('./config/env');
+const { routes } = require('./routes/routes');
 const { shutdown } = require('./middlewares/shutdown');
 
 const main = async () => {
@@ -13,6 +14,7 @@ const main = async () => {
   app.use(express.json());
 
   shutdown(app, server);
+  routes(app);
 
   server.listen(PORT, () =>
     console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`)
